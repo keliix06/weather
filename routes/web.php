@@ -13,6 +13,11 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+// if this was more complex I'd move it to a controller, but for something this small it works here
 Route::get('/', function () {
-    return view('welcome', ['user' => new \App\User()]);
+    $user = new \App\User();
+    return view('welcome', [
+        'ipAddress' => $user->getIp(),
+        'weather' => $user->weather()
+    ]);
 });

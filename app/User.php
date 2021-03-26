@@ -16,6 +16,12 @@ class User
         return $this->ipAddress ?? $_SERVER['REMOTE_ADDR'];
     }
 
+    /**
+     * Note if running Docker... your default IP address will not be publically accessible, and you
+     * will get 0, 0 for lat,long
+     *
+     * @return array
+     */
     public function location()
     {
         $location = new Location($this->getIp());

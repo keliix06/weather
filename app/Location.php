@@ -11,7 +11,7 @@ class Location
     public $longitude = '';
 
     private $ipAddress;
-    private $apiBase = 'https://freegeoip.app/json/';
+    private $apiBase = 'https://freegeoip.app/json/%s';
 
     public function __construct(string $ipAddress)
     {
@@ -20,7 +20,7 @@ class Location
 
     public function get()
     {
-        $response = Http::get($this->apiBase . $this->ipAddress);
+        $response = Http::get(sprintf($this->apiBase, $this->ipAddress));
         $body = $response->json();
         $this->latitude = $body['latitude'];
         $this->longitude = $body['longitude'];
