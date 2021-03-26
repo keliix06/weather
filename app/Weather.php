@@ -10,7 +10,7 @@ class Weather
     private $latitude;
     private $longitude;
 
-    public function __construct($latitude, $longitude)
+    public function __construct(string $latitude, string $longitude)
     {
         $this->latitude = $latitude;
         $this->longitude = $longitude;

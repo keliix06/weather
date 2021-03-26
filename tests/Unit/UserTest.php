@@ -4,6 +4,7 @@ namespace Tests\Unit;
 
 use App\Location;
 use App\User;
+use App\Weather;
 use Tests\TestCase;
 
 class UserTest extends TestCase
@@ -40,5 +41,16 @@ class UserTest extends TestCase
         $this->assertEquals('0', $location->latitude);
         $this->assertEquals('0', $location->longitude);
         $this->assertInstanceOf(Location::class, $location);
+    }
+
+    /**
+     * @test
+     */
+    public function a_user_can_have_weather()
+    {
+        $user = new User();
+        $weather = $user->weather();
+
+        $this->assertEquals('Abidjan', $weather['title']);
     }
 }

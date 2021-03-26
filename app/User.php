@@ -6,7 +6,7 @@ class User
 {
     private $ipAddress;
 
-    public function setIp($ipAddress)
+    public function setIp(string $ipAddress)
     {
         $this->ipAddress = $ipAddress;
     }
@@ -21,5 +21,12 @@ class User
         $location = new Location($this->getIp());
         $location->get();
         return $location;
+    }
+
+    public function weather()
+    {
+        $location = $this->location();
+        $weather = new Weather($location->latitude, $location->longitude);
+        return $weather->getClosest();
     }
 }
