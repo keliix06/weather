@@ -12,11 +12,11 @@ class LocationTest extends TestCase
      */
     public function we_can_get_a_location_for_an_ip()
     {
-        $location = new Location('70.59.71.126');
+        $location = new Location('127.0.0.1');
 
         $location->get();
 
-        $this->assertEquals('44.9509', $location->latitude);
-        $this->assertEquals('-93.3366', $location->longitude);
+        $this->assertEquals('0', $location->latitude);
+        $this->assertEquals('0', $location->longitude);
     }
 }
