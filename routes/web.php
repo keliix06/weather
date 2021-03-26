@@ -1,5 +1,6 @@
 <?php
 
+use App\User;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -15,7 +16,12 @@ use Illuminate\Support\Facades\Route;
 
 // if this was more complex I'd move it to a controller, but for something this small it works here
 Route::get('/', function () {
-    $user = new \App\User();
+    $user = new User();
+
+    if (Request::has('ip_address')) {
+        $user->setIp(request('ip_address'));
+    }
+
     return view('welcome', [
         'ipAddress' => $user->getIp(),
         'weather' => $user->weather()
