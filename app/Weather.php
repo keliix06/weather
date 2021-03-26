@@ -6,7 +6,7 @@ use Illuminate\Support\Facades\Http;
 
 /**
  * All of the interaction with the metaweather API lives here
- * 
+ *
  * Class Weather
  * @package App
  */
