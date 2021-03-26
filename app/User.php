@@ -2,15 +2,26 @@
 
 namespace App;
 
+/**
+ * The user is the hub of the app. The user is responsible for having all of the data. The IP address, the location, and
+ * the weather.
+ *
+ * Class User
+ * @package App
+ */
 class User
 {
-    private $ipAddress;
+    private string $ipAddress;
 
     public function setIp(string $ipAddress)
     {
         $this->ipAddress = $ipAddress;
     }
 
+    /**
+     * Default to the user's IP address unless one has been supplied
+     * @return string
+     */
     public function getIp()
     {
         return $this->ipAddress ?? $_SERVER['REMOTE_ADDR'];

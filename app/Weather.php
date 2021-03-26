@@ -4,12 +4,18 @@ namespace App;
 
 use Illuminate\Support\Facades\Http;
 
+/**
+ * All of the interaction with the metaweather API lives here
+ * 
+ * Class Weather
+ * @package App
+ */
 class Weather
 {
     private $locationSearch = 'https://www.metaweather.com/api/location/search/?lattlong=%s,%s';
     private $location = 'https://www.metaweather.com/api/location/%s/';
-    private $latitude;
-    private $longitude;
+    private string $latitude;
+    private string $longitude;
 
     public function __construct(string $latitude, string $longitude)
     {

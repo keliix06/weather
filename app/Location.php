@@ -4,14 +4,20 @@ namespace App;
 
 use Illuminate\Support\Facades\Http;
 
+/**
+ * All of the interaction with the freegeoip Api lives here
+ *
+ * Class Location
+ * @package App
+ */
 class Location
 {
     // I decided to make these public instead of using getters just to make it behave more like a model
-    public $latitude = '';
-    public $longitude = '';
+    public string $latitude = '';
+    public string $longitude = '';
 
-    private $ipAddress;
-    private $apiBase = 'https://freegeoip.app/json/%s';
+    private string $ipAddress;
+    private string $apiBase = 'https://freegeoip.app/json/%s';
 
     public function __construct(string $ipAddress)
     {
