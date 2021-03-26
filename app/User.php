@@ -27,6 +27,6 @@ class User
     {
         $location = $this->location();
         $weather = new Weather($location->latitude, $location->longitude);
-        return $weather->getClosest();
+        return $weather->get();
     }
 }
